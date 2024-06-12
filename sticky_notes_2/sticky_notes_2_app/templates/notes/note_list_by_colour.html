@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Sticky Notes - {{ page_title }}{% endblock %}
+
+{% block content %}
+    <h2>{{ page_title }} ({{ colour_name }}) ({{ count_by_colour }})</h2>
+    <a href="{% url 'note_create' %}"><button>Create New Note</button></a>
+    <p></p>
+    <table>
+        <tr>
+            <th>Title</th>
+            <th>Content</th>
+            <th>Author</th>
+            <th>Colour</th>
+        </tr>
+        {% for note in notes_by_colour %}
+            <tr>
+                <td><a href="{% url 'note_detail' pk=note.pk %}">{{ note.title }}</a></td>
+                <td>{{ note.content }}</td>
+                <td><a href="{% url 'note_list_by_author' author=note.author %}">{% if note.author is not null %}{{ note.author }}{% endif %}</a></td>
+                <td style="background-color:{{ note.colour }};">{{ note.colour }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <p></p>
+    <a href="{% url 'note_list' %}"> <<< Back to All Notes</a>
+{% endblock %}

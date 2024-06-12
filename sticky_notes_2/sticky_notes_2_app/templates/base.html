@@ -1,0 +1,36 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Sticky Notes{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'notes/styles.css' %}">
+    <style>
+        table, th, td {
+            border: 1px solid darkgray;
+            border-collapse: collapse;
+            padding: 1vh;
+            }
+        input {margin-left: 30px;}
+        textarea {margin-left: 6px;}
+        select {margin-left: 11px;}
+        button {margin-right: 5px;}
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>{% block header %}Sticky Notes{% endblock %}</h1>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+    </footer>
+
+</body>
+</html>

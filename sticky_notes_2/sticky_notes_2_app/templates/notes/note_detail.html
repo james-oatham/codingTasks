@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Sticky Notes - {{ note.title }}{% endblock %}
+
+{% block content %}
+    <h2>Note Detail ("{{ note.title }}")</h2>
+    <a href="{% url 'note_update' pk=note.pk %}"><button>Update</button></a>
+    <a href="{% url 'note_delete' pk=note.pk %}"><button>Delete</button></a>
+    <p></p>
+    <table>
+        <tr>
+            <td><b>Title</b></td>
+            <td>{{ note.title }}</td>
+        </tr>
+        <tr>
+            <td><b>Content</b></td>
+            <td>{{ note.content }}</td>
+        </tr>
+        <tr>
+            <td><b>Author</b></td>
+            <td><a href="{% url 'note_list_by_author' author=note.author %}">{% if note.author is not null %}{{ note.author }}{% endif %}</a></td>
+        </tr>
+        <tr>
+            <td style="background-color:{{ note.colour }};"><b>Colour</b></td>
+            <td><a href="{% url 'note_list_by_colour' colour=note.colour %}">{% if note.colour is not null %}{{ note.colour }}{% endif %}</a></td>
+        </tr>
+        <tr>
+            <td><b>Created at</b></td>
+            <td>{{ note.created_at }}</td>
+        </tr>
+    </table>
+    <p></p>
+    <a href="{% url 'note_list' %}"> <<< Back to All Notes</a>
+{% endblock %}
