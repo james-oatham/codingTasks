@@ -1,6 +1,6 @@
 from django.test import TestCase
 from django.urls import reverse
-from .models import Note, Author, Colour
+from sticky_notes_2_app.models import Note, Author, Colour
 
 
 # Tests for Note objects (create and retrieve).
