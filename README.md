@@ -25,3 +25,7 @@ The app was developed within a virtual environment using venv, and pushed to thi
 | tzdata | 2024.1 |
 
 Finally, it includes unit tests than can be run automatically using the test function from manage.py, plus superuser admin permissions via the Django admin site.
+
+#### Credits
+- App written entirely by myself, James Oatham
+- Thanks to everyone at HyperionDev working on the Software Engineering Fundamentals "skills bootcamp"
